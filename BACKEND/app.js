@@ -10,6 +10,7 @@ import userRouter from "./routes/userRouter.js"
 import jobRouter from "./routes/jobRouter.js"
 import applicationRouter from "./routes/applicationRouter.js"
 import { newsLetterCron } from "./automation/newsLetterCron.js"
+import axios from 'axios'
 
 const app = express()
 config({path: "./config/config.env"})
@@ -21,6 +22,23 @@ app.use(cors({
 app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+
+const url = `https://job-horizon.onrender.com`;
+const interval = 30000;
+
+function reloadWebsite() {
+  axios
+    .get(url)
+    .then((response) => {
+      console.log("website reloded");
+    })
+    .catch((error) => {
+      console.error(`Error : ${error.message}`);
+    });
+}
+
+setInterval(reloadWebsite, interval);
+
 
 
 app.use(
