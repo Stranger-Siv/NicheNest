@@ -11,7 +11,6 @@ import jobRouter from "./routes/jobRouter.js"
 import applicationRouter from "./routes/applicationRouter.js"
 import { newsLetterCron } from "./automation/newsLetterCron.js"
 
-
 const app = express()
 config({path: "./config/config.env"})
 app.use(cors({
@@ -22,6 +21,7 @@ app.use(cors({
 app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+
 
 app.use(
     fileUpload({
