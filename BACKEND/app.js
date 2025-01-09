@@ -23,7 +23,7 @@ app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-const url = `https://job-horizon.onrender.com`;
+const url = `https://nichenest-jyoz.onrender.com`;
 const interval = 30000;
 
 function reloadWebsite() {
